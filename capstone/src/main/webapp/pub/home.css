@@ -1,0 +1,224 @@
+:root {
+	--base-color: #335BFF;
+	--secondary-color: #335BFF;
+	--action-color: #335BFF;
+	--layover-color: #ffffff;
+}
+
+body {
+	margin: 0;
+	height: 100vh;
+	background-color: black;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1.2fr 1.5fr;
+	grid-template-rows: 1fr 4fr 3fr 2fr;
+	grid-template-areas:
+		"main main header"
+		"main main Featured"
+		"Signup Login Featured"
+		"footer footer Featured";
+	height: 100vh;
+	gap: 0.5em;
+	margin: 1em;
+	color: white;
+	border-radius: 3px;
+}
+
+main {
+	border-radius: 3px;
+	border: 1px solid lightgray;
+	grid-area: main;
+	background-color: var(--base-color);
+	background-image: url(../pub/images/mainMenu.jpg);
+	background-size: contain;
+	background-blend-mode: lighten;
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	font-size: 40px;
+}
+
+main:hover {
+	border-radius: 3px;
+	border: 1px solid lightgray;
+	grid-area: main;
+	background-color: var(--base-color);
+	background-image: url(../pub/images/ps1.jpg);
+	background-blend-mode: normal;
+	color: black;
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	font-size: 50px;
+	cursor: pointer;
+}
+
+#Signup {
+	grid-area: Signup;
+	background-color: var(--layover-color);
+	background-size: cover;
+	background-image: url(../pub/images/retrocontroller.jpg);
+	overflow: hidden;
+	font-family: 'Courier New', Courier, monospace;
+	color: #ffffff;
+	font-weight: 900;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 40px;
+	height: 100%;
+}
+
+#Signup:hover {
+	grid-area: Signup;
+	background-color: var(--layover-color);
+	background-size: cover;
+	background-image: url(../pub/images/retrocontroller.jpg);
+	color: #ffffff;
+	font-family: 'Courier New', Courier, monospace;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 50px;
+	cursor: pointer;
+}
+
+#Login {
+	grid-area: Login;
+	background-color: var(--layover-color);
+	background-size: cover;
+	background-image: url(../pub/images/retrogames.jpg);
+	font-family: 'Courier New', Courier, monospace;
+	color: #ffffff;
+	font-weight: 900;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 40px;
+	height: 100%;
+}
+
+#Login:hover {
+	grid-area: Login;
+	background-color: var(--layover-color);
+	background-size: cover;
+	background-image: url(../pub/images/retrogames.jpg);
+	color: #ffffff;
+	font-family: 'Courier New', Courier, monospace;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 50px;
+	cursor: pointer;
+}
+
+#Featured {
+	grid-area: Featured;
+	background-color: var(--action-color);
+	/* background-image: url(../images/gamecube.jpg); gamecube image for future*/
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: rgb(7, 7, 7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 40px;
+}
+
+#Featured:hover {
+	grid-area: Featured;
+	/* background-color: var(--action-color); */
+	/* background-image: url(../images/gamecube.jpg); gamecube image for future*/
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: rgb(0, 0, 0);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 40px;
+	/* opacity: 0.5; */
+	/* cursor: pointer; */
+}
+
+header {
+	grid-area: header;
+	background-color: var(--secondary-color);
+	background-blend-mode: screen;
+}
+
+footer {
+	grid-area: footer;
+	background-color: var(--secondary-color);
+	background-blend-mode: screen;
+}
+
+.socials {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.socials a {
+	margin-top: 100px;
+	height: 15px;
+	width: 15px;
+}
+
+a:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+strong {
+	margin-top: 100px;
+}
+
+#footerP {
+	margin-top: 1px;
+	font-size: small;
+}
+
+.wrapper ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper ul li {
+	background: #262626;
+	width: 170px;
+	border: 1px solid #fff;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+	font-size: 30px;
+	font-family: big john;
+}
+
+.wrapper ul li:hover {
+	background: var(--action-color);
+	cursor: pointer;
+}
+
+.wrapper ul ul {
+	display: none;
+}
+
+.wrapper ul li:hover>ul {
+	display: block;
+}
+
+main>div {
+	font-weight: 900;
+	height: 150px;
+}
+
+table {
+	text-align: center;
+}
