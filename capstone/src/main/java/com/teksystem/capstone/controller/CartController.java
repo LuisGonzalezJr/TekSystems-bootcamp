@@ -56,7 +56,7 @@ public class CartController {
 
         // look up the order in the database by the user id and the status
         // for the create we are looking for an order with the status pending
-        // select * from orders wehre user_id = 1 and status = 'pending'
+        // select * from orders where user_id = 1 and status = 'pending'
         // either returns a record or not
         // if no record returns .. then we need to create a new order
         // set your user object onto the order and set pending status on the order

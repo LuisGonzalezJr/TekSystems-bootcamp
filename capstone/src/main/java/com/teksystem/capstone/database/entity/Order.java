@@ -29,4 +29,7 @@ public class Order {
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<OrderProduct> orderProducts;
+
+    @Column(name = "credit_card")
+    private String creditCard;
 }

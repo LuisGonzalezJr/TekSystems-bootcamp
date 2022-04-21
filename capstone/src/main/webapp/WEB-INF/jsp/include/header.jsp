@@ -18,8 +18,24 @@
 
     <div class="container">
 
-        <a href="/home">Home Page</a> &nbsp; | &nbsp;
-        <a href="/product">Product Page</a> &nbsp; | &nbsp;
+        <a href="/home">Home</a> &nbsp; | &nbsp;
+        <a href="/signup">Sign Up</a> &nbsp; | &nbsp;
+        <a href="/login">Login</a> &nbsp; | &nbsp;
+        <a href="/product">Product</a> &nbsp; | &nbsp;
         <a href="/cart">Cart</a> &nbsp; | &nbsp;
+        <a href="/checkout">Checkout</a> &nbsp; | &nbsp;
+
+        <sec:authorize access="hasAuthority('ADMIN')">
+        &nbsp; | &nbsp;<a href="/user/search">Search</a>
+        </sec:authorize>
+
+        <sec:authorize access="isAuthenticated()">
+        &nbsp; | &nbsp; <a href="/login">Login</a>
+        </sec:authorize>
+
+        <sec:authorize access="isAuthenticated()">
+        &nbsp; | &nbsp; <a href="/login/logout">Logout</a>
+        &nbsp; &nbsp; <sec:authentication property="principal.username"/>
+        </sec:authorize>
 
         <hr>
