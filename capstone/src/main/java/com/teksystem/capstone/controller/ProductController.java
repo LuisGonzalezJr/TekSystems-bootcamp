@@ -25,16 +25,8 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private userDAO userDao;
-
-    @Autowired
-    private orderDAO orderDao;
-
-    @Autowired
     private productDAO productDao;
 
-    @Autowired
-    private orderProductDAO orderProductDao;
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/user/product", method = RequestMethod.GET)

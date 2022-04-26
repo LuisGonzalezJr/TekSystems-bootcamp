@@ -26,20 +26,6 @@ public class UserController {
     @Autowired
     private userDAO userDao;
 
-    @Autowired
-    private userRoleDAO userRoleDao;
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-
-
-
-
-
     @PostMapping("/user/search")
     public ModelAndView findUser(String firstName) {
         ModelAndView response = new ModelAndView();

@@ -46,7 +46,6 @@ public class CartController {
         return response;
     }
 
-    //this has too be product id not order_products
     @RequestMapping(value = "/AddCart/{productId}", method = RequestMethod.GET)
     public ModelAndView addItemToList(@PathVariable("productId") Integer productId) throws Exception {
         ModelAndView response = new ModelAndView();

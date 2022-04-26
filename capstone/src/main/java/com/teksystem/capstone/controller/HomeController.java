@@ -14,9 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
-   @Autowired
-    private userDAO userDao;
-
    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() throws Exception {
        ModelAndView response = new ModelAndView();
