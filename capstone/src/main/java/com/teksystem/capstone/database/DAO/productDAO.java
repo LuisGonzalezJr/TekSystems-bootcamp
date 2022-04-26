@@ -9,7 +9,15 @@ import java.util.List;
 public interface productDAO extends JpaRepository<Product, Long> {
     public Product findById(@Param("id")Integer id);
 
-    public Product findByName(@Param("name")String name);
+    public Product findProductByName(@Param("name") String name);
 
-   // public List<Product> findProductByNameAndDescription(String Switch);
+    public Product findProductByImageURL(@Param("imageURL") String imageURL);
+
+    public Product findProductByDescription(@Param("description") String description);
+
+    public List<Product> findByPrice(@Param("price") Double price);
+
+    public List<Product> findByNameIgnoreCaseContaining(@Param("name") String name);
+
+
 }

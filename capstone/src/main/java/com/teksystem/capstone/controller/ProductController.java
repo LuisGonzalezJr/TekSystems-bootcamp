@@ -1,12 +1,15 @@
 package com.teksystem.capstone.controller;
 
 
+import com.teksystem.capstone.database.DAO.orderDAO;
+import com.teksystem.capstone.database.DAO.orderProductDAO;
 import com.teksystem.capstone.database.DAO.productDAO;
+import com.teksystem.capstone.database.DAO.userDAO;
 import com.teksystem.capstone.database.entity.Product;
 import com.teksystem.capstone.formbean.ProductFormBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -15,15 +18,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Slf4j
 @Controller
 public class ProductController {
 
     @Autowired
-    private productDAO productDAO;
+    private userDAO userDao;
 
-    @RequestMapping(value = "/product", method = RequestMethod.GET)
+    @Autowired
+    private orderDAO orderDao;
+
+    @Autowired
+    private productDAO productDao;
+
+    @Autowired
+    private orderProductDAO orderProductDao;
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value = "/user/product", method = RequestMethod.GET)
     public ModelAndView product() throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/product");
@@ -51,7 +65,7 @@ public class ProductController {
             product.setPrice(form.getPrice());
             product.setImageURL(form.getImageURL());
 
-            productDAO.save(product);
+            productDao.save(product);
         }
 
         log.debug(form.toString());
@@ -59,17 +73,15 @@ public class ProductController {
         return response;
     }
 
-    @RequestMapping(value = "/product/delete/{id}", method = RequestMethod.GET)
-    public ModelAndView delete(@Param("id")Integer id) throws Exception {
+    @RequestMapping(value = "/showProducts", method = RequestMethod.GET)
+    public ModelAndView showAll() throws Exception{
         ModelAndView response = new ModelAndView();
-        response.setViewName("product");
+        response.setViewName("user/showProducts");
 
-        Product p = productDAO.findById(id);
-        if(p == null) {
-        } else {
-            productDAO.delete(p);
-        }
+        List<Product> products = productDao.findAll();
 
+        response.addObject("products", products);
         return response;
     }
+
 }

@@ -20,12 +20,6 @@ public class OrderProduct {
     @Column(name = "id")
     private Integer id;
 
-//    @Column(name = "order_id")
-//    private Integer orderId;
-//
-//    @Column(name = "product_id")
-//    private Integer productId;
-
     @Column(name = "quantity")
     private Integer quantity;
 
@@ -37,9 +31,14 @@ public class OrderProduct {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
 
+    public OrderProduct(int quantity, Product product, Order order) {
+        this.quantity = quantity;
+        this.product = product;
+        this.order = order;
+    }
 }

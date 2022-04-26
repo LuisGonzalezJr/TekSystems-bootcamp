@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,18 +19,21 @@
     <div class="container">
 
         <a href="/home">Home</a> &nbsp; | &nbsp;
-        <a href="/signup">Sign Up</a> &nbsp; | &nbsp;
-        <a href="/login">Login</a> &nbsp; | &nbsp;
-        <a href="/product">Product</a> &nbsp; | &nbsp;
+        <a href="/showProducts">Show Products</a> &nbsp; | &nbsp;
         <a href="/cart">Cart</a> &nbsp; | &nbsp;
-        <a href="/checkout">Checkout</a> &nbsp; | &nbsp;
+        <a href="/checkout">Checkout</a>  &nbsp; | &nbsp;
+        <a href="/signup">Sign Up</a> &nbsp; | &nbsp;
 
         <sec:authorize access="hasAuthority('ADMIN')">
         &nbsp; | &nbsp;<a href="/user/search">Search</a>
         </sec:authorize>
 
-        <sec:authorize access="isAuthenticated()">
-        &nbsp; | &nbsp; <a href="/login">Login</a>
+        <sec:authorize access="hasAuthority('ADMIN')">
+        &nbsp; | &nbsp;<a href="/user/product">Create Product</a>
+        </sec:authorize>
+
+        <sec:authorize access="!isAuthenticated()">
+        &nbsp; | &nbsp; <a href="/login/login">Login</a>
         </sec:authorize>
 
         <sec:authorize access="isAuthenticated()">

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRoleDAO extends JpaRepository<UserRole, Long> {
+public interface userRoleDAO extends JpaRepository<UserRole, Long> {
 
     List<UserRole> findByUserId(@Param("userId") Integer userId);
 }

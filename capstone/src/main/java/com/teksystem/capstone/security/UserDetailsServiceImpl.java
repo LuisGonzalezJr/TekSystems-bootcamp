@@ -1,6 +1,6 @@
 package com.teksystem.capstone.security;
 
-import com.teksystem.capstone.database.DAO.UserRoleDAO;
+import com.teksystem.capstone.database.DAO.userRoleDAO;
 import com.teksystem.capstone.database.DAO.userDAO;
 import com.teksystem.capstone.database.entity.User;
 import com.teksystem.capstone.database.entity.UserRole;
@@ -27,7 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private userDAO userDao;
 
     @Autowired
-    private UserRoleDAO userRoleDao;
+    private userRoleDAO userRoleDao;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

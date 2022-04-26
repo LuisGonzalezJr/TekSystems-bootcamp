@@ -26,22 +26,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/pub/**", "/error/**", "/login/**", "/index").permitAll()
-                .antMatchers("/admin/**", "/cart/**", "/user/**").authenticated()
+                .antMatchers("/pub/**", "/error/**", "/login/**", "/home", "/showAll/**").permitAll()
+                .antMatchers("/admin/**").authenticated()
                 .and()
                 .formLogin()
                 // this is the URL of the login page
-                .loginPage("/login")
+                .loginPage("/login/login")
                 // this is the URL where the login page will submit
                 .loginProcessingUrl("/login/loginSubmit")
-                .defaultSuccessUrl("/index")
+                .defaultSuccessUrl("/home")
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
                 // this is the URL to log the user out
                 .logoutUrl("/login/logout")
                 // the URL that the user goes to after they logout
-                .logoutSuccessUrl("/index")
+                .logoutSuccessUrl("/home")
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/error/404");
