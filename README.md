@@ -8,3 +8,5 @@ This is an ecommerce website that allows you to buy Retro consoles.
  
 ## Future Improvements
  - Make light/dark mode
+
+![ER diagram](https://user-images.githubusercontent.com/78994528/165410037-38a72263-8599-4d34-8128-0b27d5af666c.png)
